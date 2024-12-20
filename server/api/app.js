@@ -30,8 +30,8 @@ app.post("/api/create-checkout-session", async (req, res) => {
       payment_method_types: ["card"],
       line_items: extractingItems,
       mode: "payment",
-      success_url: `${process.env.FRONTEND_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.FRONTEND_URL}/cancel`,
+      success_url:"http://localhost:5173/success?session_id={CHECKOUT_SESSION_ID}",
+      cancel_url:"http://localhost:5173/cancel",
     });
 
     res.status(201).json({ id: session.id });
